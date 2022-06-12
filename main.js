@@ -25,3 +25,20 @@ function multiply(num1,num2){
     //Return the rounded value to 2 numbers at most
     return Math.round((multiplication + Number.EPSILON) * 100) / 100;
 }
+//Create the function operate that takes 2 numbers and an operator as parameters and returns one of the functions above
+function operate(operator,num1,num2){
+    switch(operator){
+        case '+':
+            return add(num1,num2);
+            break;
+        case '-':
+            return subtract(num1,num2);
+            break;
+        case '/':
+            return divide(num1,num2);
+            break;
+        case '*':
+            return multiply(num1,num2);
+            break;        
+    }
+}
