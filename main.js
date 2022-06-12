@@ -19,3 +19,9 @@ function divide(num1,num2){
     //Return the rounded value to 2 numbers at most
     return Math.round((division + Number.EPSILON) * 100) / 100;
 }
+//Create the function multiply that takes 2 numbers as parameters and return their multiplication
+function multiply(num1,num2){
+    let multiplication = num1*num2;
+    //Return the rounded value to 2 numbers at most
+    return Math.round((multiplication + Number.EPSILON) * 100) / 100;
+}
