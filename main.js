@@ -1,3 +1,17 @@
+//Query select necessary variables
+//Numbers buttons
+const numberButtons = document.querySelectorAll(".number");
+//Operators buttons
+const operatorButtons = document.querySelectorAll(".operator");
+//Clear, delete, equal sign and decimal point buttons
+const clearButton = document.querySelector(".clear");
+const deleteButton = document.querySelector(".delete");
+const equalButton = document.querySelector(".equal");
+const decimalButton = document.querySelector(".decimal-point");
+//Create the variables num1, num2 and operator and initialize them with null
+let num1 = null;
+let num2 = null;
+let operator = null;
 //Create the function add that takes 2 numbers as parameters and return their addition
 function add(num1,num2){
     let addition = num1 + num2;
