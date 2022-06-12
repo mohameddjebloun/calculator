@@ -1,4 +1,6 @@
 //Query select necessary variables
+//Display screen paragraph
+const displayScreen = document.querySelector(".display-screen p");
 //Numbers buttons
 const numberButtons = document.querySelectorAll(".number");
 //Operators buttons
@@ -8,10 +10,11 @@ const clearButton = document.querySelector(".clear");
 const deleteButton = document.querySelector(".delete");
 const equalButton = document.querySelector(".equal");
 const decimalButton = document.querySelector(".decimal-point");
-//Create the variables num1, num2 and operator and initialize them with null
+//Create the variables num1, num2, result and operator and initialize them with null
 let num1 = null;
 let num2 = null;
 let operator = null;
+let result = null;
 //Create the function add that takes 2 numbers as parameters and return their addition
 function add(num1,num2){
     let addition = num1 + num2;
@@ -55,4 +58,27 @@ function operate(operator,num1,num2){
             return multiply(num1,num2);
             break;        
     }
+}
+//Create the function getNumber that adds a click event listener for each number button
+function getNumber(){
+    numberButtons.forEach((button)=>{
+        button.addEventListener('click',()=>{
+            //If the display screen is showing 0 then replace it with the number
+            if(displayScreen.textContent ==='0'){
+                displayScreen.textContent = button.value;
+            }
+            //Else concatenate the number to the displayScreen
+            else{
+                displayScreen.textContent += button.value;
+            }
+            //Enable the operators and decimal point buttons if the displayScreen isn't showing 0 or the button value is different from 0
+            if(displayScreen.textContent!=='0' || button.value !== '0'){
+                //Enable the operators and decimal point buttons
+                decimalButton.disabled = false;
+                operatorButtons.forEach((button)=>{
+                button.disabled=false;
+            })
+            }
+        })
+    })
 }
