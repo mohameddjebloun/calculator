@@ -71,14 +71,6 @@ function getNumber(){
             else{
                 displayScreen.textContent += button.value;
             }
-            //Enable the operators and decimal point buttons if the displayScreen isn't showing 0 or the button value is different from 0
-            if(displayScreen.textContent!=='0' || button.value !== '0'){
-                //Enable the operators and decimal point buttons
-                decimalButton.disabled = false;
-                operatorButtons.forEach((button)=>{
-                button.disabled=false;
-            })
-            }
         })
     })
 }
