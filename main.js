@@ -109,3 +109,15 @@ function getOperator(){
         })
     })
 }
+//Create the function getPoint that adds a click event listener to the decimal point button
+function getPoint(){
+    decimalButton.addEventListener("click",()=>{
+        //If the writing screen doesn't include a decimal point then add it
+        if(!writingScreen.textContent.includes(".")){
+            writingScreen.textContent += '.';
+        }
+    })
+}
+getNumber();
+getOperator();
+getPoint();
