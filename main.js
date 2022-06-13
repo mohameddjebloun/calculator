@@ -137,7 +137,21 @@ function getEqual(){
         }
     })
 }
+//Create the function getDelete that adds a click event listener to the delete button
+function getDelete(){
+    deleteButton.addEventListener("click",()=>{
+        //If the writing screen has only one number then set it to 0
+        if(writingScreen.textContent.length === 1){
+            writingScreen.textContent = '0';
+        }
+        //Else delete the last entered number
+        else{
+            writingScreen.textContent = writingScreen.textContent.slice(0,-1);
+        }
+    })
+}
 getNumber();
 getOperator();
 getPoint();
 getEqual();
+getDelete();
