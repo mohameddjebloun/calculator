@@ -16,6 +16,8 @@ let num1 = null;
 let num2 = null;
 let operator = null;
 let result = null;
+//Call the populateScreen function
+populateScreen();
 //Create the function add that takes 2 numbers as parameters and return their addition
 function add(num1,num2){
     let addition = num1 + num2;
@@ -162,9 +164,22 @@ function getClear(){
         resultsScreen.textContent = '0';
     })
 }
-getNumber();
-getOperator();
-getPoint();
-getEqual();
-getDelete();
-getClear();
+//Create the function populateScreen that calls all the functions
+function populateScreen(){
+    //If the results screen shows an error then reset everything
+    if(resultsScreen.textContent === "ERROR:You can't divide by 0!"){
+        num1 = null;
+        num2 = null;
+        operator = null;
+        result = null;
+        writingScreen.textContent = '0';
+        resultsScreen.textContent = '0';
+    }
+    //Call all the functions
+    getNumber();
+    getOperator();
+    getPoint();
+    getEqual();
+    getDelete();
+    getClear();
+}
