@@ -118,6 +118,26 @@ function getPoint(){
         }
     })
 }
+//Create the function getEqual that adds a click event listener to the equal sign button
+function getEqual(){
+    equalButton.addEventListener("click",()=>{
+        //If operator and num1 aren't null
+        if(operator !== null && num1 !== null){
+            //Assign the content of the writing screen to num2
+            num2 = writingScreen.textContent;
+            //Call the operate function and assign it to the result variable
+            result = operate(operator,+num1,+num2);
+            //Update the display screens
+            resultsScreen.textContent = `${num1} ${operator} ${num2} = ${result}`;
+            writingScreen.textContent = '0';
+            //Give num1 the value of result and reset result and num2
+            num1 = result;
+            num2 = null;
+            result = null;
+        }
+    })
+}
 getNumber();
 getOperator();
 getPoint();
+getEqual();
