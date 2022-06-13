@@ -150,8 +150,21 @@ function getDelete(){
         }
     })
 }
+//Create the function getClear that adds a click event listener to the clear button
+function getClear(){
+    clearButton.addEventListener('click',()=>{
+        //Reset num1,num2,operator,result,writing screen and results screen
+        num1 = null;
+        num2 = null;
+        operator = null;
+        result = null;
+        writingScreen.textContent = '0';
+        resultsScreen.textContent = '0';
+    })
+}
 getNumber();
 getOperator();
 getPoint();
 getEqual();
 getDelete();
+getClear();
