@@ -63,14 +63,19 @@ function operate(operator,num1,num2){
 function getNumber(){
     numberButtons.forEach((button)=>{
         button.addEventListener('click',()=>{
-            //If the display screen is showing 0 then replace it with the number
-            if(displayScreen.textContent ==='0'){
-                displayScreen.textContent = button.value;
+            //If the length is smaller than 9(JS numbers limit)
+            if(displayScreen.textContent.length<9){
+                //If the display screen is showing 0 then replace it with the number
+                if(displayScreen.textContent ==='0'){
+                    displayScreen.textContent = button.value;
+                }
+                //Else concatenate the number to the displayScreen
+                else{
+                    displayScreen.textContent += button.value;
+                }
             }
-            //Else concatenate the number to the displayScreen
-            else{
-                displayScreen.textContent += button.value;
-            }
+            
         })
     })
 }
+getNumber();
