@@ -1,6 +1,7 @@
 //Query select necessary variables
-//Display screen paragraph
-const displayScreen = document.querySelector(".display-screen p");
+//Display screen paragraphs
+const writingScreen = document.querySelector(".writing-screen");
+const resultsScreen = document.querySelector(".results-screen");
 //Numbers buttons
 const numberButtons = document.querySelectorAll(".number");
 //Operators buttons
@@ -64,18 +65,47 @@ function getNumber(){
     numberButtons.forEach((button)=>{
         button.addEventListener('click',()=>{
             //If the length is smaller than 9(JS numbers limit)
-            if(displayScreen.textContent.length<9){
-                //If the display screen is showing 0 then replace it with the number
-                if(displayScreen.textContent ==='0'){
-                    displayScreen.textContent = button.value;
+            if(writingScreen.textContent.length<9){
+                //If the writing screen is showing 0 then replace it with the number
+                if(writingScreen.textContent ==='0'){
+                    writingScreen.textContent = button.value;
                 }
-                //Else concatenate the number to the displayScreen
+                //Else concatenate the number to the writing screen
                 else{
-                    displayScreen.textContent += button.value;
+                    writingScreen.textContent += button.value;
                 }
             }
             
         })
     })
 }
-getNumber();
+//Create the function getOperator that adds a click event listener for each operator button
+function getOperator(){
+    operatorButtons.forEach((button)=>{
+        button.addEventListener('click',()=>{
+            //If num1 is null
+            if(num1 === null){
+                //Give num1 the value of the writing screen and operator the value of the button clicked
+                num1 = writingScreen.textContent;
+                operator = button.value;
+                //Reset the writing screen to 0
+                writingScreen.textContent = '0';
+                //Write in the results screen
+                resultsScreen.textContent = `${num1} ${operator}`
+            }
+            else{
+                //Give num2 the value of the writing screen
+                num2 = writingScreen.textContent;
+                //Call the operate function using operator,num1 and num2 and assign its return value to the variable result
+                result = operate(operator,+num1,+num2);
+                //Give num1 the value of result, results screen the result value, writing screen '0', num2 null, result null and operator the button clicked
+                resultsScreen.textContent = `${num1} ${operator} ${num2} = ${result}`;
+                num1 = result;
+                writingScreen.textContent = '0';
+                num2 = null;
+                result= null;
+                operator = button.value;
+            }
+        })
+    })
+}
