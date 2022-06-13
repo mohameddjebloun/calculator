@@ -33,7 +33,7 @@ function subtract(num1,num2){
 //Create the function divide that takes 2 numbers as parameters and return their division
 function divide(num1,num2){
     if(num2 === 0){
-        return "ERROR:You can't divide by 0!";
+        return "ERROR:You can't divide by 0! Please press clear";
     }
     let division = num1/num2;
     //Return the rounded value to 2 numbers at most
@@ -166,15 +166,6 @@ function getClear(){
 }
 //Create the function populateScreen that calls all the functions
 function populateScreen(){
-    //If the results screen shows an error then reset everything
-    if(resultsScreen.textContent === "ERROR:You can't divide by 0!"){
-        num1 = null;
-        num2 = null;
-        operator = null;
-        result = null;
-        writingScreen.textContent = '0';
-        resultsScreen.textContent = '0';
-    }
     //Call all the functions
     getNumber();
     getOperator();
